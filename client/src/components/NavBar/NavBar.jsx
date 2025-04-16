@@ -12,7 +12,7 @@ const NavBar = () => {
   const { pathname } = useLocation();
 
   return (
-    <Navbar className="bg-blue-100">
+    <Navbar className="bg-blue-300">
       <NavbarBrand>
         <Logo />
       </NavbarBrand>
@@ -21,8 +21,8 @@ const NavBar = () => {
           <Link
             className={
               pathname === '/table'
-                ? 'text-blue-600 text-lg'
-                : 'text-blue-950 text-lg hover:text-blue-600'
+                ? 'text-white text-lg'
+                : 'text-inherit text-lg hover:text-blue-600'
             }
             as={NavLink}
             to="/table"
@@ -35,8 +35,8 @@ const NavBar = () => {
           <Link
             className={
               pathname === '/memes'
-                ? 'text-blue-600 text-lg'
-                : 'text-blue-950 text-lg hover:text-blue-600'
+                ? 'text-white text-lg'
+                : 'text-inherit text-lg hover:text-blue-600'
             }
             as={NavLink}
             to="/memes"

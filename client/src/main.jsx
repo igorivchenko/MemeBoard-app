@@ -4,11 +4,14 @@ import 'modern-normalize';
 import './index.css';
 import App from './components/App';
 import { HeroUIProvider } from '@heroui/react';
+import { BrowserRouter } from 'react-router-dom';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <HeroUIProvider>
-      <App />
-    </HeroUIProvider>
+    <BrowserRouter>
+      <HeroUIProvider>
+        <App />
+      </HeroUIProvider>
+    </BrowserRouter>
   </StrictMode>
 );

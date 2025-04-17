@@ -16,3 +16,16 @@ export const fetchAllMemes = createAsyncThunk(
     }
   }
 );
+export const updateMeme = createAsyncThunk(
+  'memes/updateMeme',
+  async ({ id, updatedData }, { rejectWithValue }) => {
+    try {
+      const res = await axios.patch(`/memes/${id}`, updatedData);
+      return res.data.data;
+    } catch (err) {
+      const message =
+        err.response?.data?.message || err.message || 'Something went wrong.';
+      return rejectWithValue(message);
+    }
+  }
+);

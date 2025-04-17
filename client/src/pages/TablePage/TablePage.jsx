@@ -17,7 +17,7 @@ const TablePage = () => {
 
   return (
     <>
-      <section className="pt-8">
+      <section className="py-8">
         <div className="max-w-[1264px] px-4 mx-auto md:px-8">
           {isLoading ? (
             <div className="flex justify-center items-center h-96">

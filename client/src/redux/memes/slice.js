@@ -1,5 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { fetchAllMemes } from './operations';
+import { createSlice, isAnyOf } from '@reduxjs/toolkit';
+import { fetchAllMemes, updateMeme } from './operations';
 
 const initialState = {
   memes: [],
@@ -17,18 +17,26 @@ const slice = createSlice({
   },
   extraReducers: builder => {
     builder
-      .addCase(fetchAllMemes.pending, state => {
-        state.isLoading = true;
-        state.error = null;
-      })
       .addCase(fetchAllMemes.fulfilled, (state, { payload }) => {
         state.memes = payload;
         state.isLoading = false;
       })
-      .addCase(fetchAllMemes.rejected, (state, { payload }) => {
-        state.error = payload;
+      .addCase(updateMeme.fulfilled, (state, { payload }) => {
+        state.memes = state.memes.map(meme =>
+          meme._id === payload._id ? { ...meme, ...payload } : meme
+        );
         state.isLoading = false;
-      });
+      })
+      .addMatcher(isAnyOf(fetchAllMemes.pending, updateMeme.pending), state => {
+        state.isLoading = true;
+      })
+      .addMatcher(
+        isAnyOf(fetchAllMemes.rejected, updateMeme.rejected),
+        (state, { payload }) => {
+          state.error = payload;
+          state.isLoading = false;
+        }
+      );
   },
 });
 

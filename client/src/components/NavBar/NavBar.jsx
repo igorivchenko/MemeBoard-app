@@ -22,7 +22,7 @@ const NavBar = () => {
             className={
               pathname === '/table'
                 ? 'text-white text-lg'
-                : 'text-inherit text-lg hover:text-blue-600'
+                : 'text-[#333] text-lg hover:text-blue-600'
             }
             as={NavLink}
             to="/table"
@@ -36,7 +36,7 @@ const NavBar = () => {
             className={
               pathname === '/memes'
                 ? 'text-white text-lg'
-                : 'text-inherit text-lg hover:text-blue-600'
+                : 'text-[#333] text-lg hover:text-blue-600'
             }
             as={NavLink}
             to="/memes"

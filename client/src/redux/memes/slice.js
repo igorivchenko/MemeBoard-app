@@ -10,6 +10,11 @@ const initialState = {
 const slice = createSlice({
   name: 'memes',
   initialState,
+  reducers: {
+    resetMemes: state => {
+      state.memes = [];
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(fetchAllMemes.pending, state => {
@@ -26,5 +31,7 @@ const slice = createSlice({
       });
   },
 });
+
+export const { resetMemes } = slice.actions;
 
 export default slice.reducer;

@@ -7,10 +7,9 @@ import {
   TableCell,
   getKeyValue,
   Button,
-  Spinner,
 } from '@heroui/react';
 import { useSelector } from 'react-redux';
-import { selectIsLoading, selectMemesData } from '../../redux/memes/selectors';
+import { selectMemesData } from '../../redux/memes/selectors';
 
 const columns = [
   {
@@ -33,7 +32,6 @@ const columns = [
 
 const MemeTable = () => {
   const memesData = useSelector(selectMemesData);
-  const isLoading = useSelector(selectIsLoading);
 
   const mappedData = memesData.map(({ _id, ...rest }) => ({
     id: _id,
@@ -56,11 +54,7 @@ const MemeTable = () => {
           ACTIONS
         </TableColumn>
       </TableHeader>
-      <TableBody
-        items={mappedData}
-        isLoading={isLoading}
-        loadingContent={<Spinner />}
-      >
+      <TableBody items={mappedData}>
         {item => (
           <TableRow key={item._id}>
             {columnKey =>

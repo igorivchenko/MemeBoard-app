@@ -73,6 +73,35 @@ npm run preview
 
 ---
 
+## 🐳 Docker Setup
+
+> Make sure you have **Docker** and **Docker Compose** installed on your machine.
+
+### Steps:
+
+1. **Clone the repository**
+
+```bash
+git clone https://github.com/your-username/MemeBoard-app.git
+cd MemeBoard-app
+```
+
+2. **Run the app with Docker Compose**
+
+```bash
+docker compose up -d --build
+```
+
+Frontend available at: http://localhost:5173
+
+Backend (API) running at: http://localhost:3000
+
+3. **To stop the app**
+
+```bash
+docker compose down
+```
+
 ### 👨‍💻 Author
 
 **Ihor Ivchenko**
@@ -80,3 +109,7 @@ npm run preview
 - Fullstack Developer
 - 📧 Email: iv4enkoigor@gmail.com
 - 📁 GitHub: [github.com/igorivchenko](https://github.com/igorivchenko)
+
+```
+
+```

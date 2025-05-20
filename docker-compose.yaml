@@ -1,0 +1,19 @@
+services:
+  api:
+    build: ./API
+    ports:
+      - '3000:3000'
+    env_file:
+      - ./API/.env
+    volumes:
+      - ./API:/app
+    restart: unless-stopped
+
+  client:
+    build: ./client
+    ports:
+      - '5173:5173'
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    restart: unless-stopped
